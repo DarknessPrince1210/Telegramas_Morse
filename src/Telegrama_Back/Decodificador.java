@@ -9,15 +9,13 @@ package Telegrama_Back;
  *
  * @author USUARIO
  */
-public class traductor {
-   String[] morse = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "--.--", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..","|"};
-String[] palabras= {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"," "};
-	
-    
-    String traduccion = "";
+public class Decodificador {
+    String[] morse = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "--.--", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..","|"};
+    String[] palabras= {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"," "};
+    String texto = "";
   
-    public String traducir(String dato){
-        String traduccion = "";
+    public String decodificar(String dato){
+        String texto = "";
         String mayuscula = "";
         String letra = "";
         
@@ -28,12 +26,12 @@ String[] palabras= {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
             
             for(int j=0; j<palabras.length;j++){
                 if(letra.equals(palabras [j])){
-                    traduccion = traduccion + morse[j]+"|";
+                    texto = texto + morse[j]+"|";
                     
                 }
             }
         }
-        return traduccion;
+        return texto;
     }
     
     public String traducirEspañol(String dato){
@@ -44,10 +42,10 @@ String[] palabras= {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
         for(int i=0; i<palabra.length; i++){
             for(int j=0; j<morse.length; j++){
                 if(palabra[i].equals(morse[j])){
-                    traduccion = traduccion + palabras[j]+ "";
+                    texto = texto + palabras[j]+ " ";
                 }
             }
         }
-        return traduccion;
+        return texto;
     }
  }
